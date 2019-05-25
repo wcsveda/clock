@@ -1,6 +1,3 @@
-.clock, .center {
-}
-
 .clock {
     width: 50vh;
     height: 50vh;
@@ -25,9 +22,6 @@
 .hour_mark {
     color:  red;
     font-size: 1.5em;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.hour_mark_1 {
-    
+    font-weight: bolder;
+    font-family: monospace;
 }
