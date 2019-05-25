@@ -1,25 +1,53 @@
-.clock {
-    width: 50vh;
-    height: 50vh;
-    border: 2px solid black;
-    border-radius: 50%;
+.container {
+    width: 60vh;
+    height: 60vh;
+    border: 5px solid black;
+    border-radius: 19%;
+    margin: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.clock, .center, .hour_mark, .hands {
+
+.inner_circle {
+    border: 2px solid black;
+    width: 35vh;
+    height: 35vh;
+    border-radius: 50%;
+    box-shadow: 10px 10px inset silver;
+}
+
+.inner_circle, .center, .hour_mark, .hands, .title {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+
+.title {
+    position: relative;
+    top: 103%;
+    left: 33%;
+    font-weight: bold;
+}
+
+.clock {
+    position: relative;
+    width: 50vh;
+    height: 50vh;
+    border: 5px solid black;
+    border-radius: 50%;
+}
 .center {
-    width: 2vh;
-    height: 2vh;
+    display: none;
+    width: 4vh;
+    height: 4vh;
     z-index: 1;
     border-radius: 50%;
     background-color: black;
 }
 .hour_mark {
-    color:  red;
     font-size: 1.5em;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -28,21 +56,21 @@
     transform-origin: 0 0;
 }
 
-#hour_hand {
+.hour_hand {
     width: 15vh;
     height: 1.5vh;
     background: black;
 }
 
-#minute_hand {
+.minute_hand {
     width: 18vh;
     height: 0.7vh;
-    background: cyan;
+    background: black;
 }
 
-#second_hand {
+.second_hand {
     width: 20vh;
     height: 0.3vh;
-    background: yellow;
+    background: black;
 }
 
