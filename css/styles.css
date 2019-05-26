@@ -1,76 +1,126 @@
-.container {
-    width: 60vh;
-    height: 60vh;
-    border: 5px solid black;
-    border-radius: 19%;
-    margin: 10px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+body {
+  font-family: monospace;
+  display: flex;
+  flex-direction: row;
 }
 
-
-.inner_circle {
-    border: 2px solid black;
-    width: 35vh;
-    height: 35vh;
-    border-radius: 50%;
-    box-shadow: 10px 10px inset silver;
-}
-
-.inner_circle, .center, .hour_mark, .hands, .title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-
-.title {
-    position: relative;
-    top: 103%;
-    left: 33%;
-    font-weight: bold;
+.clock-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .clock {
-    position: relative;
-    width: 50vh;
-    height: 50vh;
-    border: 5px solid black;
-    border-radius: 50%;
+  position: relative;
+  width: 90%;
+  border: 1px solid lightgray;
+  padding-bottom: 90%;
+  border-radius: 50%;
+  margin: 3%;
+  background: white;
+  -webkit-box-shadow: 10px 10px 29px -8px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 10px 10px 29px -8px rgba(0, 0, 0, 0.41);
+  box-shadow: 10px 10px 29px -8px rgba(0, 0, 0, 0.41);
+  color: white;
 }
+.center,
+.hour_mark,
+.clock_ring,
+.tick_mark,
+.hour_hand::after,
+.minute_hand::after,
+.second_hand::after,
+.digital {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clock_ring {
+  width: 90%;
+  height: 90%;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: black;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
 .center {
-    display: none;
-    width: 4vh;
-    height: 4vh;
-    z-index: 1;
-    border-radius: 50%;
-    background-color: black;
+  width: 4%;
+  height: 4%;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
 }
+
+.digital {
+  transform: translate(-50%, 100%);
+  background-color: white;
+  border-radius: 20%;
+  color: black;
+  padding: 5px;
+}
+
 .hour_mark {
-    font-size: 1.5em;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.3rem;
+}
+
+.tick_mark {
+  width: 2%;
+  height: 1%;
+  background-color: white;
+}
+.tick_mark:nth-child(15n) {
+  background-color: red;
 }
 
 .hands {
-    transform-origin: 0 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform-origin: center center;
 }
 
 .hour_hand {
-    width: 15vh;
-    height: 1.5vh;
-    background: black;
+  transform: rotate(30deg);
 }
-
 .minute_hand {
-    width: 18vh;
-    height: 0.7vh;
-    background: black;
+  transform: rotate(90deg);
 }
-
 .second_hand {
-    width: 20vh;
-    height: 0.3vh;
-    background: black;
+  transform: rotate(60deg);
 }
 
+.hour_hand::after {
+  content: "";
+  width: 45%;
+  height: 2%;
+  background: linear-gradient(to right, transparent 10%, yellow 80%);
+}
+
+.minute_hand::after {
+  content: "";
+  width: 58%;
+  height: 1.5%;
+  background: linear-gradient(to right, transparent 10%, green 80%);
+}
+
+.second_hand::after {
+  content: "";
+  width: 72%;
+  height: 0.7%;
+  background: linear-gradient(to right, transparent 10%, white 80%);
+}
+.title {
+  text-align: center;
+  -webkit-box-shadow: 0px 10px 22px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 10px 22px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 10px 22px -10px rgba(0, 0, 0, 0.75);
+  padding: 5px;
+  background-color: white;
+  font-size: 1.2em;
+  border: 0.5px solid lightgray;
+}

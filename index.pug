@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        <title>CLOCK</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/index.js" defer></script>
+    body
+      mixin clock(id, title, offset)
+        .clock-container(id=id, data-zoneoffset=offset)
+          .clock
+            span.clock_ring
+            span.center
+            span.inner_circle
+            - index = 0
+            while index++ < 12
+              span(class=['hour_mark', 'hour_mark_'+index])=index
+            - index = 0
+            while index++ < 60
+              span(class=['tick_mark', 'tick_mark_'+index])
+
+            span.hands.hour_hand
+            span.hands.minute_hand
+            span.hands.second_hand
+          
+          span.title=title
+            br
+            span 00:00:00 AM
+
+      +clock('utc', 'UTC', '0:0')
+      +clock('india', 'India', '+05:30')
+      +clock('new_york', 'New York', '-04:00')

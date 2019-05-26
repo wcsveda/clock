@@ -1,86 +1,272 @@
-
 <!DOCTYPE html>
+<!DOCTYPE html5>
 <html lang="en">
-
-<head>
+  <head>
     <title>CLOCK</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" />
     <script src="js/index.js" defer></script>
-</head>
-
-<body>
-    <div class="container" id="utc_clock">
-        <div class="clock">
-                <span class="title">UTC</span>
-            <div class="inner_circle"></div>
-            <span class="center"></span>
-            <span class="hour_mark hour_mark_1">1</span>
-            <span class="hour_mark hour_mark_2">2</span>
-            <span class="hour_mark hour_mark_3">3</span>
-            <span class="hour_mark hour_mark_4">4</span>
-            <span class="hour_mark hour_mark_5">5</span>
-            <span class="hour_mark hour_mark_6">6</span>
-            <span class="hour_mark hour_mark_7">7</span>
-            <span class="hour_mark hour_mark_8">8</span>
-            <span class="hour_mark hour_mark_9">9</span>
-            <span class="hour_mark hour_mark_10">10</span>
-            <span class="hour_mark hour_mark_11">11</span>
-            <span class="hour_mark hour_mark_12">12</span>
-
-            <span class="hands hour_hand"></span>
-            <span class="hands minute_hand"></span>
-            <span class="hands second_hand"></span>
-        </div>
+  </head>
+  <body>
+    <div class="clock-container" id="utc" data-zoneoffset="0:0">
+      <div class="clock">
+        <span class="clock_ring"></span>
+        <span class="center"></span>
+        <span class="inner_circle"></span>
+        <span class="hour_mark hour_mark_1">1</span>
+        <span class="hour_mark hour_mark_2">2</span>
+        <span class="hour_mark hour_mark_3">3</span>
+        <span class="hour_mark hour_mark_4">4</span>
+        <span class="hour_mark hour_mark_5">5</span>
+        <span class="hour_mark hour_mark_6">6</span>
+        <span class="hour_mark hour_mark_7">7</span>
+        <span class="hour_mark hour_mark_8">8</span>
+        <span class="hour_mark hour_mark_9">9</span>
+        <span class="hour_mark hour_mark_10">10</span>
+        <span class="hour_mark hour_mark_11">11</span>
+        <span class="hour_mark hour_mark_12">12</span>
+        <span class="tick_mark tick_mark_1"></span>
+        <span class="tick_mark tick_mark_2"></span>
+        <span class="tick_mark tick_mark_3"></span>
+        <span class="tick_mark tick_mark_4"></span>
+        <span class="tick_mark tick_mark_5"></span>
+        <span class="tick_mark tick_mark_6"></span>
+        <span class="tick_mark tick_mark_7"></span>
+        <span class="tick_mark tick_mark_8"></span>
+        <span class="tick_mark tick_mark_9"></span>
+        <span class="tick_mark tick_mark_10"></span>
+        <span class="tick_mark tick_mark_11"></span>
+        <span class="tick_mark tick_mark_12"></span>
+        <span class="tick_mark tick_mark_13"></span>
+        <span class="tick_mark tick_mark_14"></span>
+        <span class="tick_mark tick_mark_15"></span>
+        <span class="tick_mark tick_mark_16"></span>
+        <span class="tick_mark tick_mark_17"></span>
+        <span class="tick_mark tick_mark_18"></span>
+        <span class="tick_mark tick_mark_19"></span>
+        <span class="tick_mark tick_mark_20"></span>
+        <span class="tick_mark tick_mark_21"></span>
+        <span class="tick_mark tick_mark_22"></span>
+        <span class="tick_mark tick_mark_23"></span>
+        <span class="tick_mark tick_mark_24"></span>
+        <span class="tick_mark tick_mark_25"></span>
+        <span class="tick_mark tick_mark_26"></span>
+        <span class="tick_mark tick_mark_27"></span>
+        <span class="tick_mark tick_mark_28"></span>
+        <span class="tick_mark tick_mark_29"></span>
+        <span class="tick_mark tick_mark_30"></span>
+        <span class="tick_mark tick_mark_31"></span>
+        <span class="tick_mark tick_mark_32"></span>
+        <span class="tick_mark tick_mark_33"></span>
+        <span class="tick_mark tick_mark_34"></span>
+        <span class="tick_mark tick_mark_35"></span>
+        <span class="tick_mark tick_mark_36"></span>
+        <span class="tick_mark tick_mark_37"></span>
+        <span class="tick_mark tick_mark_38"></span>
+        <span class="tick_mark tick_mark_39"></span>
+        <span class="tick_mark tick_mark_40"></span>
+        <span class="tick_mark tick_mark_41"></span>
+        <span class="tick_mark tick_mark_42"></span>
+        <span class="tick_mark tick_mark_43"></span>
+        <span class="tick_mark tick_mark_44"></span>
+        <span class="tick_mark tick_mark_45"></span>
+        <span class="tick_mark tick_mark_46"></span>
+        <span class="tick_mark tick_mark_47"></span>
+        <span class="tick_mark tick_mark_48"></span>
+        <span class="tick_mark tick_mark_49"></span>
+        <span class="tick_mark tick_mark_50"></span>
+        <span class="tick_mark tick_mark_51"></span>
+        <span class="tick_mark tick_mark_52"></span>
+        <span class="tick_mark tick_mark_53"></span>
+        <span class="tick_mark tick_mark_54"></span>
+        <span class="tick_mark tick_mark_55"></span>
+        <span class="tick_mark tick_mark_56"></span>
+        <span class="tick_mark tick_mark_57"></span>
+        <span class="tick_mark tick_mark_58"></span>
+        <span class="tick_mark tick_mark_59"></span>
+        <span class="tick_mark tick_mark_60"></span>
+        <span class="hands hour_hand"></span>
+        <span class="hands minute_hand"></span>
+        <span class="hands second_hand"></span>
+      </div>
+      <span class="title">
+        UTC
+        <br />
+        <span>00:00:00 AM</span>
+      </span>
     </div>
-    <div class="container" id="india_clock">
-            
-            <div class="clock">
-                    <span class="title">INDIA</span>
-                <div class="inner_circle"></div>
-                <span class="center"></span>
-                <span class="hour_mark hour_mark_1">1</span>
-                <span class="hour_mark hour_mark_2">2</span>
-                <span class="hour_mark hour_mark_3">3</span>
-                <span class="hour_mark hour_mark_4">4</span>
-                <span class="hour_mark hour_mark_5">5</span>
-                <span class="hour_mark hour_mark_6">6</span>
-                <span class="hour_mark hour_mark_7">7</span>
-                <span class="hour_mark hour_mark_8">8</span>
-                <span class="hour_mark hour_mark_9">9</span>
-                <span class="hour_mark hour_mark_10">10</span>
-                <span class="hour_mark hour_mark_11">11</span>
-                <span class="hour_mark hour_mark_12">12</span>
-    
-                <span class="hands hour_hand"></span>
-                <span class="hands minute_hand"></span>
-                <span class="hands second_hand"></span>
-            </div>
-        </div>
-        <div class="container"  id="new_york_clock">
-                <div class="clock">
-                        <span class="title">New York</span>
-                
-                    <div class="inner_circle"></div>
-                    <span class="center"></span>
-                    <span class="hour_mark hour_mark_1">1</span>
-                    <span class="hour_mark hour_mark_2">2</span>
-                    <span class="hour_mark hour_mark_3">3</span>
-                    <span class="hour_mark hour_mark_4">4</span>
-                    <span class="hour_mark hour_mark_5">5</span>
-                    <span class="hour_mark hour_mark_6">6</span>
-                    <span class="hour_mark hour_mark_7">7</span>
-                    <span class="hour_mark hour_mark_8">8</span>
-                    <span class="hour_mark hour_mark_9">9</span>
-                    <span class="hour_mark hour_mark_10">10</span>
-                    <span class="hour_mark hour_mark_11">11</span>
-                    <span class="hour_mark hour_mark_12">12</span>
-        
-                    <span class="hands hour_hand"></span>
-                    <span class="hands minute_hand"></span>
-                    <span class="hands second_hand"></span>
-                </div>
-            </div>
-            
-</body>
-
+    <div class="clock-container" id="india" data-zoneoffset="+05:30">
+      <div class="clock">
+        <span class="clock_ring"></span>
+        <span class="center"></span>
+        <span class="inner_circle"></span>
+        <span class="hour_mark hour_mark_1">1</span>
+        <span class="hour_mark hour_mark_2">2</span>
+        <span class="hour_mark hour_mark_3">3</span>
+        <span class="hour_mark hour_mark_4">4</span>
+        <span class="hour_mark hour_mark_5">5</span>
+        <span class="hour_mark hour_mark_6">6</span>
+        <span class="hour_mark hour_mark_7">7</span>
+        <span class="hour_mark hour_mark_8">8</span>
+        <span class="hour_mark hour_mark_9">9</span>
+        <span class="hour_mark hour_mark_10">10</span>
+        <span class="hour_mark hour_mark_11">11</span>
+        <span class="hour_mark hour_mark_12">12</span>
+        <span class="tick_mark tick_mark_1"></span>
+        <span class="tick_mark tick_mark_2"></span>
+        <span class="tick_mark tick_mark_3"></span>
+        <span class="tick_mark tick_mark_4"></span>
+        <span class="tick_mark tick_mark_5"></span>
+        <span class="tick_mark tick_mark_6"></span>
+        <span class="tick_mark tick_mark_7"></span>
+        <span class="tick_mark tick_mark_8"></span>
+        <span class="tick_mark tick_mark_9"></span>
+        <span class="tick_mark tick_mark_10"></span>
+        <span class="tick_mark tick_mark_11"></span>
+        <span class="tick_mark tick_mark_12"></span>
+        <span class="tick_mark tick_mark_13"></span>
+        <span class="tick_mark tick_mark_14"></span>
+        <span class="tick_mark tick_mark_15"></span>
+        <span class="tick_mark tick_mark_16"></span>
+        <span class="tick_mark tick_mark_17"></span>
+        <span class="tick_mark tick_mark_18"></span>
+        <span class="tick_mark tick_mark_19"></span>
+        <span class="tick_mark tick_mark_20"></span>
+        <span class="tick_mark tick_mark_21"></span>
+        <span class="tick_mark tick_mark_22"></span>
+        <span class="tick_mark tick_mark_23"></span>
+        <span class="tick_mark tick_mark_24"></span>
+        <span class="tick_mark tick_mark_25"></span>
+        <span class="tick_mark tick_mark_26"></span>
+        <span class="tick_mark tick_mark_27"></span>
+        <span class="tick_mark tick_mark_28"></span>
+        <span class="tick_mark tick_mark_29"></span>
+        <span class="tick_mark tick_mark_30"></span>
+        <span class="tick_mark tick_mark_31"></span>
+        <span class="tick_mark tick_mark_32"></span>
+        <span class="tick_mark tick_mark_33"></span>
+        <span class="tick_mark tick_mark_34"></span>
+        <span class="tick_mark tick_mark_35"></span>
+        <span class="tick_mark tick_mark_36"></span>
+        <span class="tick_mark tick_mark_37"></span>
+        <span class="tick_mark tick_mark_38"></span>
+        <span class="tick_mark tick_mark_39"></span>
+        <span class="tick_mark tick_mark_40"></span>
+        <span class="tick_mark tick_mark_41"></span>
+        <span class="tick_mark tick_mark_42"></span>
+        <span class="tick_mark tick_mark_43"></span>
+        <span class="tick_mark tick_mark_44"></span>
+        <span class="tick_mark tick_mark_45"></span>
+        <span class="tick_mark tick_mark_46"></span>
+        <span class="tick_mark tick_mark_47"></span>
+        <span class="tick_mark tick_mark_48"></span>
+        <span class="tick_mark tick_mark_49"></span>
+        <span class="tick_mark tick_mark_50"></span>
+        <span class="tick_mark tick_mark_51"></span>
+        <span class="tick_mark tick_mark_52"></span>
+        <span class="tick_mark tick_mark_53"></span>
+        <span class="tick_mark tick_mark_54"></span>
+        <span class="tick_mark tick_mark_55"></span>
+        <span class="tick_mark tick_mark_56"></span>
+        <span class="tick_mark tick_mark_57"></span>
+        <span class="tick_mark tick_mark_58"></span>
+        <span class="tick_mark tick_mark_59"></span>
+        <span class="tick_mark tick_mark_60"></span>
+        <span class="hands hour_hand"></span>
+        <span class="hands minute_hand"></span>
+        <span class="hands second_hand"></span>
+      </div>
+      <span class="title">
+        India
+        <br />
+        <span>00:00:00 AM</span>
+      </span>
+    </div>
+    <div class="clock-container" id="new_york" data-zoneoffset="-04:00">
+      <div class="clock">
+        <span class="clock_ring"></span>
+        <span class="center"></span>
+        <span class="inner_circle"></span>
+        <span class="hour_mark hour_mark_1">1</span>
+        <span class="hour_mark hour_mark_2">2</span>
+        <span class="hour_mark hour_mark_3">3</span>
+        <span class="hour_mark hour_mark_4">4</span>
+        <span class="hour_mark hour_mark_5">5</span>
+        <span class="hour_mark hour_mark_6">6</span>
+        <span class="hour_mark hour_mark_7">7</span>
+        <span class="hour_mark hour_mark_8">8</span>
+        <span class="hour_mark hour_mark_9">9</span>
+        <span class="hour_mark hour_mark_10">10</span>
+        <span class="hour_mark hour_mark_11">11</span>
+        <span class="hour_mark hour_mark_12">12</span>
+        <span class="tick_mark tick_mark_1"></span>
+        <span class="tick_mark tick_mark_2"></span>
+        <span class="tick_mark tick_mark_3"></span>
+        <span class="tick_mark tick_mark_4"></span>
+        <span class="tick_mark tick_mark_5"></span>
+        <span class="tick_mark tick_mark_6"></span>
+        <span class="tick_mark tick_mark_7"></span>
+        <span class="tick_mark tick_mark_8"></span>
+        <span class="tick_mark tick_mark_9"></span>
+        <span class="tick_mark tick_mark_10"></span>
+        <span class="tick_mark tick_mark_11"></span>
+        <span class="tick_mark tick_mark_12"></span>
+        <span class="tick_mark tick_mark_13"></span>
+        <span class="tick_mark tick_mark_14"></span>
+        <span class="tick_mark tick_mark_15"></span>
+        <span class="tick_mark tick_mark_16"></span>
+        <span class="tick_mark tick_mark_17"></span>
+        <span class="tick_mark tick_mark_18"></span>
+        <span class="tick_mark tick_mark_19"></span>
+        <span class="tick_mark tick_mark_20"></span>
+        <span class="tick_mark tick_mark_21"></span>
+        <span class="tick_mark tick_mark_22"></span>
+        <span class="tick_mark tick_mark_23"></span>
+        <span class="tick_mark tick_mark_24"></span>
+        <span class="tick_mark tick_mark_25"></span>
+        <span class="tick_mark tick_mark_26"></span>
+        <span class="tick_mark tick_mark_27"></span>
+        <span class="tick_mark tick_mark_28"></span>
+        <span class="tick_mark tick_mark_29"></span>
+        <span class="tick_mark tick_mark_30"></span>
+        <span class="tick_mark tick_mark_31"></span>
+        <span class="tick_mark tick_mark_32"></span>
+        <span class="tick_mark tick_mark_33"></span>
+        <span class="tick_mark tick_mark_34"></span>
+        <span class="tick_mark tick_mark_35"></span>
+        <span class="tick_mark tick_mark_36"></span>
+        <span class="tick_mark tick_mark_37"></span>
+        <span class="tick_mark tick_mark_38"></span>
+        <span class="tick_mark tick_mark_39"></span>
+        <span class="tick_mark tick_mark_40"></span>
+        <span class="tick_mark tick_mark_41"></span>
+        <span class="tick_mark tick_mark_42"></span>
+        <span class="tick_mark tick_mark_43"></span>
+        <span class="tick_mark tick_mark_44"></span>
+        <span class="tick_mark tick_mark_45"></span>
+        <span class="tick_mark tick_mark_46"></span>
+        <span class="tick_mark tick_mark_47"></span>
+        <span class="tick_mark tick_mark_48"></span>
+        <span class="tick_mark tick_mark_49"></span>
+        <span class="tick_mark tick_mark_50"></span>
+        <span class="tick_mark tick_mark_51"></span>
+        <span class="tick_mark tick_mark_52"></span>
+        <span class="tick_mark tick_mark_53"></span>
+        <span class="tick_mark tick_mark_54"></span>
+        <span class="tick_mark tick_mark_55"></span>
+        <span class="tick_mark tick_mark_56"></span>
+        <span class="tick_mark tick_mark_57"></span>
+        <span class="tick_mark tick_mark_58"></span>
+        <span class="tick_mark tick_mark_59"></span>
+        <span class="tick_mark tick_mark_60"></span>
+        <span class="hands hour_hand"></span>
+        <span class="hands minute_hand"></span>
+        <span class="hands second_hand"></span>
+      </div>
+      <span class="title">
+        New York
+        <br />
+        <span>00:00:00 AM</span>
+      </span>
+    </div>
+  </body>
 </html>

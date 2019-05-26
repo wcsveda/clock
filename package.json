@@ -1,0 +1,13 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/wcsveda/clock",
+  "author": "naaspati <naaspati@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^1.17.1",
+    "pug": "^2.0.3",
+    "write-to-file": "^1.0.2"
+  }
+}

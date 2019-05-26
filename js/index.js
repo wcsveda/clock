@@ -1,77 +1,103 @@
+function translate(children, div, radius, ticks) {
+    let n = 1;
 
-
-const radius = 22;
-
-Array.from(document.getElementsByClassName('hour_mark'))
-    .forEach((element, index) => {
-        const n = index + 1;
-        const rads = ((n * 30 - 90) * Math.PI) / 180;
+    for (const element of children) {
+        const rads = ((n * div - 90) * Math.PI) / 180;
         const x = Math.cos(rads) * radius;
         const y = Math.sin(rads) * radius;
 
-        element.style.transform = `translateX(${x - 1}vh) translateY(${y - 2}vh)`
-    });
+        element.style.top = (49 + y) + "%";
+        element.style.left = (49 + x) + "%";
 
-function _angles(count) {
-    const array = Array.of(count + 1);
+        if (ticks)
+            element.style.transform = `rotate(${n * div - 90}deg)`;
+        n++;
+    }
+}
+
+class Clock {
+    constructor(element) {
+        const hands = Array.from(element.getElementsByClassName('hands'));
+        this.hourHand = hands.find(t => t.classList.contains('hour_hand'));
+        this.minuteHand = hands.find(t => t.classList.contains('minute_hand'));
+        this.secondHand = hands.find(t => t.classList.contains('second_hand'));
+        this.digitalClock = element.querySelector('.title > span');
+
+        translate(element.getElementsByClassName('hour_mark'), 30, 37);
+        translate(element.getElementsByClassName('tick_mark'), 6, 43, true);
+
+        const os = element.dataset.zoneoffset.split(':');
+
+        this.offset = {
+            hour: os[0] ? parseInt(os[0]) : 0,
+            minute: os[1] ? parseInt(os[1]) : 0,
+            second: os[2] ? parseInt(os[2]) : 0,
+        };
+    }
+}
+
+const clocks = Array.from(document.getElementsByClassName('clock-container')).map(c => new Clock(c));
+const numbers = Array.of(61);
+for (let n = 0; n < 61; n++) {
+    numbers[n] = n < 10 ? '0' + n : String(n);
+}
+
+const angles = (() => {
+    const array = Array.of(61);
+    const count = 60;
     const div = 360 / count;
 
     for (let n = 1; n <= count; n++)
         array[n] = `rotate(${n * div - 90}deg)`;
 
+    array[0] = array[count];
     return array;
-}
+})();
 
-const angles = _angles(60);
-angles[0] = angles[60];
 
-class Clock {
-    constructor(id, hourOff, minuteOff, secondOff) {
-        const item = document.getElementById(id);
-        this.hourHand = this.child(item, 'hour_hand'),
-        this.minuteHand = this.child(item, 'minute_hand'),
-        this.secondHand = this.child(item, 'second_hand'),
-        this.titleElem = this.child(item, 'title');
-        this.title = this.titleElem.innerText;
-        this.offset = {hour: hourOff || 0, minute: minuteOff || 0, second: secondOff || 0};
-    }
-    child(item, cls) {
-        return item.getElementsByClassName(cls)[0];
-    }
-}
-
-const clocks = [
-    new Clock("utc_clock"),
-    new Clock("india_clock", 5, 30),
-    new Clock("new_york_clock", -4),
-];
+// let h = 12, m = 0, s = 0;
 
 function updateClock() {
-    let date = new Date();
-    for (const c of clocks) {
-        let hour = date.getUTCHours()  + c.offset.hour,
-        minute = date.getUTCMinutes()  + c.offset.minute,
-        second = date.getUTCSeconds() + c.offset.second;
+    const date = new Date();
+    const utc_hour = date.getUTCHours(),
+        utc_minute = date.getUTCMinutes(),
+        utc_second = date.getUTCSeconds();
 
-        if(second > 60) {
+    /**
+ *
+const utc_hour = h,
+    utc_minute = m,
+    utc_second = s++;
+    */
+
+    for (const c of clocks) {
+        let hour = utc_hour + c.offset.hour,
+            minute = utc_minute + c.offset.minute,
+            second = utc_second + c.offset.second;
+
+        if (second > 60) {
             minute++;
             second -= 60;
         }
-        if(minute > 60) {
+        if (minute > 60) {
             hour++;
             minute -= 60;
         }
 
-        let hr = (hour % 12) * 5;
-        c.titleElem.innerText = `${c.title}(${map(hour%12 || 12)}:${map(minute)}:${map(second)})`
+        /**
+         * if(c.offset.hour == 0) {
+            h = hour;
+            m = minute + 1;
+            s = second + 1;
+        }
+         */
+
+        c.digitalClock.innerText = numbers[hour % 24 || 24] + ':' + numbers[minute] + ':' + numbers[second];
 
         c.minuteHand.style.transform = angles[minute];
-        c.hourHand.style.transform = angles[hr] ;
-        c.secondHand.style.transform = angles[second];    
+        c.hourHand.style.transform = angles[hour % 12 * 5 + Math.floor(minute / 12)];
+        c.secondHand.style.transform = angles[second];
     }
-}
-function map(n) {
-    return n < 10 ? `0${n}` : n;
 }
 
 setInterval(updateClock, 1000);
