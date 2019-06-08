@@ -17,7 +17,7 @@ function translate(children, div, radius, ticks) {
 
 class Clock {
     constructor(element) {
-        const hands = Array.from(element.getElementsByClassName('hands'));
+        const hands = [...element.getElementsByClassName('hands')];
         this.hourHand = hands.find(t => t.classList.contains('hour_hand'));
         this.minuteHand = hands.find(t => t.classList.contains('minute_hand'));
         this.secondHand = hands.find(t => t.classList.contains('second_hand'));
@@ -36,14 +36,14 @@ class Clock {
     }
 }
 
-const clocks = Array.from(document.getElementsByClassName('clock-container')).map(c => new Clock(c));
-const numbers = Array.of(61);
+const clocks = Array.from(document.getElementsByClassName('clock-container'), c => new Clock(c));
+const numbers = new Array(61);
 for (let n = 0; n < 61; n++) {
     numbers[n] = n < 10 ? '0' + n : String(n);
 }
 
 const angles = (() => {
-    const array = Array.of(61);
+    const array = new Array(61);
     const count = 60;
     const div = 360 / count;
 
@@ -71,18 +71,31 @@ const utc_hour = h,
     */
 
     for (const c of clocks) {
+        console.log(utc_hour);
         let hour = utc_hour + c.offset.hour,
             minute = utc_minute + c.offset.minute,
             second = utc_second + c.offset.second;
 
+
+        if (second < 0) {
+            minute--;
+            second += 60;
+        }
         if (second > 60) {
             minute++;
             second -= 60;
+        }
+        if (minute < 0) {
+            hour--;
+            minute += 60;
         }
         if (minute > 60) {
             hour++;
             minute -= 60;
         }
+
+        if (hour < 0)
+            hour = 24 + hour;
 
         /**
          * if(c.offset.hour == 0) {
