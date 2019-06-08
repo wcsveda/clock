@@ -71,7 +71,6 @@ const utc_hour = h,
     */
 
     for (const c of clocks) {
-        console.log(utc_hour);
         let hour = utc_hour + c.offset.hour,
             minute = utc_minute + c.offset.minute,
             second = utc_second + c.offset.second;
